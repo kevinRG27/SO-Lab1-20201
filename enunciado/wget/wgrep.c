@@ -5,8 +5,8 @@
 #define n 100
 
 //Firma de los métodos
-int wgrepFunction(char termino[], char *fileName);
-int wgrepByInput(char termino[]);
+int func_wgrep(char termino[], char *fileName);
+int wgrep_Input(char termino[]);
 
 int main(int argc, char *argv[]){
 
@@ -17,20 +17,20 @@ int main(int argc, char *argv[]){
         return 1;
     }
     if (argc == 2){
-        if (wgrepByInput(argv[1]) == 1){
+        if (wgrep_Input(argv[1]) == 1){
             return 1;
         }
     }
     if (argc > 2){
         for (int i = 2; i < argc; i++){
-            if (wgrepFunction(argv[1], argv[i]) == 1){
+            if (func_wgrep(argv[1], argv[i]) == 1){
                 return 1;
             }
         }
     }
     return 0;
 }
-int wgrepByInput(char termino[]){
+int wgrep_Input(char termino[]){
     
     char str[n];            //Variable para guardar la entrada por teclado
 
@@ -43,7 +43,7 @@ int wgrepByInput(char termino[]){
     return 0;
 }
 
-int wgrepFunction(char termino[], char *fileName){
+int func_wgrep(char termino[], char *fileName){
     
     FILE *fp = fopen(fileName, "r");    //fp para manejar el archivo
     char *linea = NULL;
